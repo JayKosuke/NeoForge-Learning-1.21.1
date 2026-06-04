@@ -106,6 +106,7 @@ public class LearningMod {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.LEARNINGITEM);
+            event.accept(ModItems.LEARNERITE);
         }
     }
 
