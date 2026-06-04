@@ -1,5 +1,6 @@
 package net.kettle9107.learningmod;
 
+import net.kettle9107.learningmod.block.ModBlocks;
 import net.kettle9107.learningmod.item.ModItems;
 import org.slf4j.Logger;
 
@@ -38,8 +39,6 @@ public class LearningMod {
     public static final String MODID = "learningmod";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
-//    // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
-//    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
 //    // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
 //    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
 //    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
@@ -68,12 +67,10 @@ public class LearningMod {
     public LearningMod(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-
+        // Register the Deferred Register to the mod event bus so items get registered
         ModItems.register(modEventBus);
-//        // Register the Deferred Register to the mod event bus so blocks get registered
-//        BLOCKS.register(modEventBus);
-//        // Register the Deferred Register to the mod event bus so items get registered
-//        ITEMS.register(modEventBus);
+//      // Register the Deferred Register to the mod event bus so blocks get registered
+        ModBlocks.register(modEventBus);
 //        // Register the Deferred Register to the mod event bus so tabs get registered
 //        CREATIVE_MODE_TABS.register(modEventBus);
 
@@ -107,6 +104,9 @@ public class LearningMod {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.LEARNINGITEM);
             event.accept(ModItems.LEARNERITE);
+        }
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.LEARNING_BLOCK);
         }
     }
 

@@ -1,4 +1,6 @@
 {
   "item.learningmod.learningitem": "LearningItem",
-  "item.learningmod.learnerite": "Learnerite"
+  "item.learningmod.learnerite": "Learnerite",
+
+  "block.learningmod.learning_block": "Block of Learnerite"
 }
