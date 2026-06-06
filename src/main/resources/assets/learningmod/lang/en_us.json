@@ -3,5 +3,8 @@
   "item.learningmod.learnerite": "Learnerite",
 
   "block.learningmod.learning_block": "Block of Learnerite",
-  "block.learningmod.learning_ore": "Learnerite Ore"
+  "block.learningmod.learning_ore": "Learnerite Ore",
+
+  "creativetab.learningmod.learning_items": "Learning Items",
+  "creativetab.learningmod.learning_blocks": "Learning Block"
 }

@@ -1,6 +1,7 @@
 package net.kettle9107.learningmod;
 
 import net.kettle9107.learningmod.block.ModBlocks;
+import net.kettle9107.learningmod.item.ModCreativeModeTabs;
 import net.kettle9107.learningmod.item.ModItems;
 import org.slf4j.Logger;
 
@@ -67,17 +68,19 @@ public class LearningMod {
     public LearningMod(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-        // Register the Deferred Register to the mod event bus so items get registered
-        ModItems.register(modEventBus);
-//      // Register the Deferred Register to the mod event bus so blocks get registered
-        ModBlocks.register(modEventBus);
-//        // Register the Deferred Register to the mod event bus so tabs get registered
-//        CREATIVE_MODE_TABS.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
+
+        // Register the Deferred Register to the mod event bus so tabs get registered
+        ModCreativeModeTabs.register(modEventBus);
+
+        // Register the Deferred Register to the mod event bus so items get registered
+        ModItems.register(modEventBus);
+        // Register the Deferred Register to the mod event bus so blocks get registered
+        ModBlocks.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
