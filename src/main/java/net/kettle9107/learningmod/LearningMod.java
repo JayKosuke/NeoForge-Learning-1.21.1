@@ -107,6 +107,7 @@ public class LearningMod {
         }
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(ModBlocks.LEARNING_BLOCK);
+            event.accept(ModBlocks.LEARNING_ORE);
         }
     }
 
